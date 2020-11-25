@@ -4,17 +4,15 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
 
-var a;
-var circles=[];
 var ground1;
 var stand;
 var slingshot1;
 var polygon1;
+var block1,block2,block3,block4,block5,block6,block7,block8;
+var block9,block10,block11,block12,block13,block14,block15,block16;
 
 function setup() {
   createCanvas(1200,600);
-  stroke(255)
-
 
   engine = Engine.create();
   world = engine.world;
@@ -45,7 +43,7 @@ function setup() {
 }
 
 function draw() {
-  //camera.zoom=camera.zoom+1
+  Engine.update(engine);
   background(0); 
 
  ground1.display();
@@ -74,6 +72,9 @@ function draw() {
 
 function mouseDragged(){
 
-Matter.Body.setPosition(polygon1.body,polygon1.body.position,{x: mouseX,y: mouseY});
+Matter.Body.setPosition(polygon1.body,{x: mouseX,y: mouseY});
 
+}
+function mouseReleased(){
+  slingshot1.detatch();
 }
